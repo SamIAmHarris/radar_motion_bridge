@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description      = 'Adds RadarSDKMotion to the iOS build.'
   s.homepage         = 'https://example.com'
   s.license          = { :type => 'MIT' }
-  s.author           = { 'Your Team' => 'dev@example.com' }
+  s.author           = { 'Kaleo Design' => 'sam@kaleo.design' }
   s.source           = { :path => '.' }
 
   s.source_files     = 'Classes/**/*'
