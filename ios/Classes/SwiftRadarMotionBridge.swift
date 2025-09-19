@@ -1,12 +1,38 @@
 //
- //  SwiftRadarMotionBridge.swift
- //
- import Flutter
- import UIKit
+//  SwiftRadarMotionBridge.swift
+//
+import Flutter
+import UIKit
+import Flutter
+import RadarSDK
+import RadarSDKMotion 
 
  public class SwiftRadarMotionBridge: NSObject, FlutterPlugin {
    public static func register(with registrar: FlutterPluginRegistrar) {
-     // No-op: This plugin only brings in the CocoaPods dependency (RadarSDKMotion).
-     // There is no runtime API; Radar is used via the radar_flutter package in your app.
+    let channel = FlutterMethodChannel(name: "radar_motion_bridge",
+                                       binaryMessenger: registrar.messenger())
+    let instance = SwiftRadarMotionBridge()
+    registrar.addMethodCallDelegate(instance, channel: channel)
    }
  }
+
+   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    switch call.method {
+    case "enableLocationMetadata":
+      // Depending on Radar iOS SDK version, the configuration API is one of these shapes.
+      // Keep the one that compiles for your version:
+
+      // --- Option A: mutable singleton style
+      Radar.sdkConfiguration.useLocationMetadata = true
+
+      // --- Option B: set a new configuration object
+      // let cfg = RadarSdkConfiguration()
+      // cfg.useLocationMetadata = true
+      // Radar.setSdkConfiguration(cfg)
+
+      result(nil)
+
+    default:
+      result(FlutterMethodNotImplemented)
+    }
+  }
