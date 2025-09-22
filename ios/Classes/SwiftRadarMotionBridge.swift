@@ -21,13 +21,10 @@ import RadarSDKMotion
       // Keep the one that compiles for your version:
       DispatchQueue.main.async {
 
-        // --- Option A: mutable singleton style
-        Radar.sdkConfiguration.useLocationMetadata = true
-
-        // --- Option B: set a new configuration object
-        // let cfg = RadarSdkConfiguration()
-        // cfg.useLocationMetadata = true
-        // Radar.setSdkConfiguration(cfg)
+        // Set a new configuration object
+        let cfg = RadarSdkConfiguration()
+        cfg.useLocationMetadata = true
+        Radar.setSdkConfiguration(cfg)
 
         result(nil)
       }
