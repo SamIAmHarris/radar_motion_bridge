@@ -4,7 +4,6 @@
 import Flutter
 import UIKit
 import RadarSDK
-import RadarSDKMotion 
 
  public class SwiftRadarMotionBridge: NSObject, FlutterPlugin {
    public static func register(with registrar: FlutterPluginRegistrar) {
@@ -28,12 +27,6 @@ import RadarSDKMotion
 
         result(nil)
       }
-
-      case "startMotion":
-        DispatchQueue.main.async {
-          RadarMotion.start()
-          result(nil)
-        }
 
     default:
       result(FlutterMethodNotImplemented)
