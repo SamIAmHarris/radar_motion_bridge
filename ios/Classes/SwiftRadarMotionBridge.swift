@@ -3,7 +3,6 @@
 //
 import Flutter
 import UIKit
-import Flutter
 import RadarSDK
 import RadarSDKMotion 
 
@@ -14,25 +13,33 @@ import RadarSDKMotion
     let instance = SwiftRadarMotionBridge()
     registrar.addMethodCallDelegate(instance, channel: channel)
    }
- }
 
    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
     case "enableLocationMetadata":
       // Depending on Radar iOS SDK version, the configuration API is one of these shapes.
       // Keep the one that compiles for your version:
+      DispatchQueue.main.async {
 
-      // --- Option A: mutable singleton style
-      Radar.sdkConfiguration.useLocationMetadata = true
+        // --- Option A: mutable singleton style
+        Radar.sdkConfiguration.useLocationMetadata = true
 
-      // --- Option B: set a new configuration object
-      // let cfg = RadarSdkConfiguration()
-      // cfg.useLocationMetadata = true
-      // Radar.setSdkConfiguration(cfg)
+        // --- Option B: set a new configuration object
+        // let cfg = RadarSdkConfiguration()
+        // cfg.useLocationMetadata = true
+        // Radar.setSdkConfiguration(cfg)
 
-      result(nil)
+        result(nil)
+      }
+
+      case "startMotion":
+        DispatchQueue.main.async {
+          RadarMotion.start()
+          result(nil)
+        }
 
     default:
       result(FlutterMethodNotImplemented)
     }
   }
+}
