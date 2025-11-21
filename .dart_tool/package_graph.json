@@ -1,0 +1,14 @@
+{
+  "roots": [
+    "radar_motion_bridge"
+  ],
+  "packages": [
+    {
+      "name": "radar_motion_bridge",
+      "version": "0.0.1",
+      "dependencies": [],
+      "devDependencies": []
+    }
+  ],
+  "configVersion": 1
+}
