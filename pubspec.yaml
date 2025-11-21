@@ -1,6 +1,6 @@
 name: radar_motion_bridge
 description: Adds RadarSDKMotion CocoaPods dependency for FlutterFlow Cloud Build.
-version: 0.0.1
+version: 0.0.2
 homepage: https://example.com
 environment:
   sdk: ">=2.17.0 <4.0.0"
@@ -11,3 +11,6 @@ flutter:
     platforms:
       ios:
         pluginClass: SwiftRadarMotionBridge
+      android:
+        package: com.redrhinoresults.radarmotionbridge
+        pluginClass: RadarMotionBridgePlugin
