@@ -11,6 +11,3 @@ flutter:
     platforms:
       ios:
         pluginClass: SwiftRadarMotionBridge
-      android:
-        package: com.redrhinoresults.radar_motion_bridge
-        pluginClass: RadarMotionBridgePlugin
